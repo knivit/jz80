@@ -1,6 +1,7 @@
 package com.tsoft.jz80.core;
 
 public class Z80State {
+
     // Acumulador y resto de registros de 8 bits
     private int regA, regB, regC, regD, regE, regH, regL;
     // Flags sIGN, zERO, 5, hALFCARRY, 3, pARITY y ADDSUB (n), carryFlag

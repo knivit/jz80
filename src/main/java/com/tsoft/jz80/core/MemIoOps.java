@@ -28,6 +28,10 @@ public class MemIoOps {
         }
     }
 
+    public byte[] getRam() {
+        return z80Ram;
+    }
+
     public void setRam(byte[] ram) {
         z80Ram = ram;
     }
@@ -54,13 +58,13 @@ public class MemIoOps {
 
     public int peek16(int address) {
         int lsb = peek8(address);
-        int msb = peek8(address + 1);
+        int msb = peek8((address + 1) & 0xffff);
         return (msb << 8) | lsb;
     }
 
     public void poke16(int address, int word) {
         poke8(address, word);
-        poke8(address + 1, word >>> 8);
+        poke8((address + 1) & 0xffff, word >>> 8);
     }
 
     public int inPort(int port) {
